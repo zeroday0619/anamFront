@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진단검사 결과 리스트 / 고려대학교안암병원</title>
+    <style>
+        /* 기본 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* 각 결과 구분을 위한 스타일 */
+        .result-item {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>검사 결과 리스트</h1>
+
+    {% for result in results %}
+    <div class="result-item">
+        <h2>결과 #{{ loop.index }}</h2>
+        <table>
+            <tr>
+                <th>병원 코드</th>
+                <td>{{ result.hsptCd }}</td>
+            </tr>
+            <tr>
+                <th>환자 번호</th>
+                <td>{{ result.ptno }}</td>
+            </tr>
+            <tr>
+                <th>의뢰 코드</th>
+                <td>{{ result.ordrCd }}</td>
+            </tr>
+            <tr>
+                <th>의뢰 이름</th>
+                <td>{{ result.ordrNm }}</td>
+            </tr>
+            <tr>
+                <th>의뢰 날짜</th>
+                <td>{{ result.ordrYmd }}</td>
+            </tr>
+            <tr>
+                <th>검체 번호</th>
+                <td>{{ result.spcmNo }}</td>
+            </tr>
+            <tr>
+                <th>검사 코드</th>
+                <td>{{ result.exmnCd }}</td>
+            </tr>
+            <tr>
+                <th>검사 이름</th>
+                <td>{{ result.exmnNm }}</td>
+            </tr>
+            <tr>
+                <th>검사 과정 코드</th>
+                <td>{{ result.exmnPrssCd }}</td>
+            </tr>
+            <tr>
+                <th>검사 과정 이름</th>
+                <td>{{ result.exmnPrssNm }}</td>
+            </tr>
+            <tr>
+                <th>보고 날짜</th>
+                <td>{{ result.rprtDt }}</td>
+            </tr>
+            <tr>
+                <th>검체 종류</th>
+                <td>{{ result.spcmNm }}</td>
+            </tr>
+            <tr>
+                <th>검사 결과 값</th>
+                <td>{{ result.exrsNcvlVl }} {{ result.exrsUnitNm }}</td>
+            </tr>
+            <tr>
+                <th>참고 범위</th>
+                <td>{{ result.rfrcCtn }}</td>
+            </tr>
+            <tr>
+                <th>정상 하한치</th>
+                <td>{{ result.nrmlLwlmNcvlVl }}</td>
+            </tr>
+            <tr>
+                <th>정상 상한치</th>
+                <td>{{ result.nrmlUplmNcvlVl }}</td>
+            </tr>
+            <tr>
+                <th>검사 유형</th>
+                <td>{{ result.slipNm }}</td>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+    
+</body>
+</html>
